@@ -26,6 +26,13 @@ The standard practice for building the appropriate baseline is by using the vari
 
 ![regression](https://github.com/bmjaron/phase_2_final_project/assets/115658357/09324cf5-5110-4492-b440-606cd2791105)
 
+This model has an R-squared of 0.75, which means that it captures roughly 75% of the total variance in house price. Additionally, the predictors were statistically significant. The interpretation of our model is the following: a house with no square feet has a price of $0, while every subsequent square foot added increases the price by $531.
+
+Our next step was to add multiple variables to the model, and see if we could achieve a higher R-squared than the baseline model. The numerical variables that we chose were: bedrooms, floors, sqft_garage, sqft_patio, and year_built (in addition to sqft_living). These numerics were those that did not have high positive correlation with sqft_living. These were carefully chosen to eliminate multicolinearity, the fact that highly correlated variables move together. A regression model has to be able to predict changes associated with one variable while holding all else constant, if variables move together this becomes harder to do. 
+
+We also added 2 categorical variables: grade and view. Grade is the overall grade of the house that is calculated based on the quality of construction. This is determined based on the quality of materials used and quality of worksmanship (higher quality materials/worksmanship means it cost more to build). View is self-explanatory, whether or not the home has any view of greenery or bodies of water that are prevelant in King County. In order to use these categorical variables in our model, we broke them into samller subcategories and used ordinal encodig to convert words to numbers. 
+
+Additionally, 
 
 ## Results 
 
