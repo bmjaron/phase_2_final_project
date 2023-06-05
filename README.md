@@ -53,7 +53,6 @@ Our model is also statistically significant, and all of our coefficients are sta
 Although we may be tempted to revert to our baseline model because of the failed linearity assumption, we'll show below that each model we ran, even the linear baseline, failed this assumption. So despite the lack of linearity, we're going to rely on our new model, but very cautiously. 
 
 **Interpreation of Model:** A house with no features will have a price of 0 dollars. 
-For every bedroom added, holding all else 
 
 *  For every bedroom added, holding all else constant, price decreases by 60,300 dollars.
 *   For every square foot of living space added (holding all else constant) price increases by about 103 dollars.
