@@ -37,6 +37,9 @@ Additionally, in order to better capture some curvature in sqft_living, we expon
 ## Results 
 ![regression_equation](https://github.com/bmjaron/phase_2_final_project/assets/115658357/634449c8-ddc6-4885-8fb8-adb7412cc852)
 
+![regression_equation_table](https://github.com/bmjaron/phase_2_final_project/assets/115658357/d61412d2-37e6-4a9c-b9ca-953c45fcfcd4)
+
+
 The adjusted R-squared of our model is 0.779, meaning that our model captures about 78% of the variance of house price. This is certainly an improvement from our baseline, and even some of the other multiple regressions we ran.
 
 Our model is also statistically significant, and all of our coefficients are statistically significant. Before we explain what our model is *saying*, let's first check some of our assumptions of linearity:
