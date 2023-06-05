@@ -52,7 +52,25 @@ Our model is also statistically significant, and all of our coefficients are sta
 
 Although we may be tempted to revert to our baseline model because of the failed linearity assumption, we'll show below that each model we ran, even the linear baseline, failed this assumption. So despite the lack of linearity, we're going to rely on our new model, but very cautiously. 
 
+**Interpreation of Model:** A house with no features will have a price of 0 dollars. 
+For every bedroom added, holding all else 
+
+*  For every bedroom added, holding all else constant, price decreases by 60,300 dollars.
+*   For every square foot of living space added (holding all else constant) price increases by about 103 dollars.
+* For every floor added (holding all else constant) price decreases by about 89,598 dollars. 
+* For every square foot of garage space added (holding all else constant) price decreases by 242 dollars. 
+* For every square foot of patio space added (holding all else constant) price increases by about 169 dollars. 
+* For every subsequent year built (holding all else constant) the price increases by about 177 dollars.
+* Each time a new range of grades is reach (holding all else constant) price increases by 207,000 dollars.
+* And for the presence of a view (holding all else constant) price increases by 313,400 dollars.
+
+**Model Limitations:** Although our model seems to perform well, it does not account for one of the most important features in real estate: location. Additionally, it does not meet the linearity assumption and should be used cautiously. 
 
 ## Conclusions 
 
+Although our model is statistically significant and explains about 78% of the variance, we would caution our client before using our model to predict home prices. 
+
+Although this model could deliver a rough approximation of what a house price might be, there's still a chance of witnessing variance from the prediction. Another point of concern is that none of our models meet the linearity assumption. 
+
+It is our recommendation that the client not use our model in order to make any significant financial decision, rather use more intuitive methods to determine what constitutes a good deal, and use our model only as a check to make sure data aligns with prior assumptions. 
 
