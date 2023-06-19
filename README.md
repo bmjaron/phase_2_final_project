@@ -22,7 +22,7 @@ Our stakeholder is a real estate investment firm located in King County, which i
 
 ## 3. Data 
 
-Our project makes use of only one dataset, which is officially titled the King County House Sales dataset. The dataset contains 30,155 entries, with very few null values. Additionally, there are 25 columns, 2 of which contain price and a unique id for each house. Since the target is price, and id is irrelevant to our modelling, this leaves us with 23 potential predictors. 
+Our project makes use of only one dataset, which is officially titled the King County House Sales dataset. The dataset contains 30,155 entries, with very few null values. Additionally, there are 25 columns, 2 of which contain price and a unique id for each house. Since the target is price, and id is irrelevant to our modeling, this leaves us with 23 potential predictors. 
 
 ## 4. Modeling
 
@@ -40,7 +40,7 @@ Our next step was to add multiple variables to the model, and see if we could ac
 
 We also added 2 categorical variables: grade and view. Grade is the overall grade of the house that is calculated based on the quality of construction. This is determined based on the quality of materials used and quality of worksmanship (higher quality materials/worksmanship means it cost more to build). View is self-explanatory, whether or not the home has any view of greenery or bodies of water that are prevelant in King County. In order to use these categorical variables in our model, we broke them into samller subcategories and used ordinal encodig to convert words to numbers. 
 
-Additionally, in order to better capture some curvature in sqft_living, we exponentially transformed this variable. 
+Additionally, in order to better capture some curvature in sqft_living, we exponentially transformed this variable.
 
 ## 5. Results 
 ![regression_equation](https://github.com/bmjaron/phase_2_final_project/assets/115658357/634449c8-ddc6-4885-8fb8-adb7412cc852)
@@ -52,26 +52,33 @@ The adjusted R-squared of our model is 0.779, meaning that our model captures ab
 
 Our model is also statistically significant, and all of our coefficients are statistically significant. Before we explain what our model is *saying*, let's first check some of our assumptions of linearity:
 
+1.  **Multicolinearity:** This should not be a problem for us, as we worked hard to eliminate this problem earlier.
+2. **Normality:** Looking at the p-value of the Jarque-Bera test, which checks for residual normality, we can see a value of 0. This means that we can reject the null hypothesis that our model residuals are not normal in favor of the alternative hypothesis that our model residuals are normal. In short, we've met the normality assumption with statistical significance. 
+3. **Homoscedasticity:** A look above at the Goldfeld-Quandt test we ran shows a p-value of 0.99, which means we fail to reject the null hypothesis, and conclude that our data is homoscedastic.
+4. **Linearity:** Last, but certainly not least, is the linearity assumption. Below, we'll show the plot of model residuals. If there's curvature in this plot, then it is a pretty good indidcation that our model isn't linear. Additionally, we'll plot the partial regression plots of each predictor with the target. This will helps us understand if each predictor has a linear relationship with the target, while holding all else constant. We'll also present the p-value of the linear rainbow test. The null hypothesis of this test is that the model is linear. A rejection of the null hyptohesis (which will happen if the p-value is less than 0.05) in favor of the alternative hypothesis means that the model is **not** linear.
 
-1.   **Linearity:** Since we're running multiple regression, we can't visualize linearity. Instead, we'll rely on the rainbow test which was run above. The very low p-value indicates that we must reject the null hypothesis that the model is linear in favor of the alternative hypothesis that the model is **not** linear.
-2.  **Multicolinearity:** This should not be a problem for us, as we worked hard to eliminate this problem earlier.
-3. **Normality:** Looking at the p-value of the Jarque-Bera test, which checks for residual normality, we can see a value of 0. This means that we can reject the null hypothesis that our model residuals are not normal in favor of the alternative hypothesis that our model residuals are normal. In short, we've met the normality assumption with statistical significance. 
-4. **Homoscedasticity:** A look above at the Goldfeld-Quandt test we ran shows a p-value of 0.99, which means we fail to reject the null hypothesis, and conclude that our data is homoscedastic.
+![residual_plot](https://github.com/bmjaron/phase_2_final_project/assets/115658357/e2f31500-edb3-47a6-afa7-a4e680d06bff)
 
-Although we may be tempted to revert to our baseline model because of the failed linearity assumption, we'll show below that each model we ran, even the linear baseline, failed this assumption. So despite the lack of linearity, we're going to rely on our new model, but very cautiously. 
+It looks like there is some curvature in the residual plot, a strong indication that our model isn't linear.
+
+![partial_regression_plot](https://github.com/bmjaron/phase_2_final_project/assets/115658357/3e6d167a-7bbc-4c61-9c72-df5ae52a65f3)
+
+Additionally, it looks like none of the predictors have a linear relationship with the target.
+
+Finally, the linear rainbow test for our model has a p-value that is below 0.05, which means that we reject the null hypothesis in favor of the alternative hypothesis that the model **isn't** linear. 
+
+Although we may be tempted to revert to our baseline model because of the failed linearity assumption, in our notebook we ran countless models that all failed on this assumption. Even a logarithmic model failed this assumption. As a result, this model, considering that it had the higest adjusted R-squared, is our best performer. 
 
 **Interpreation of Model:** A house with no features will have a price of 0 dollars. 
 
-*  For every bedroom added, holding all else constant, price decreases by 60,300 dollars.
-*   For every square foot of living space added (holding all else constant) price increases by about 103 dollars.
-* For every floor added (holding all else constant) price decreases by about 89,598 dollars. 
-* For every square foot of garage space added (holding all else constant) price decreases by 242 dollars. 
-* For every square foot of patio space added (holding all else constant) price increases by about 169 dollars. 
-* For every subsequent year built (holding all else constant) the price increases by about 177 dollars.
-* Each time a new range of grades is reach (holding all else constant) price increases by 207,000 dollars.
-* And for the presence of a view (holding all else constant) price increases by 313,400 dollars.
-
-**Model Limitations:** Although our model seems to perform well, it does not account for one of the most important features in real estate: location. Additionally, it does not meet the linearity assumption and should be used cautiously. 
+*  For every bedroom added, holding all else constant, price decreases by $60,300.
+*  For every square foot of living space added (holding all else constant) price increases by about $103.
+* For every floor added (holding all else constant) price decreases by about $89,598. 
+* For every square foot of garage space added (holding all else constant) price decreases by $242. 
+* For every square foot of patio space added (holding all else constant) price increases by about $169. 
+* For every subsequent year built (holding all else constant) the price increases by about $177.
+* Each time a new range of grades is reach (holding all else constant) price increases by $207,000.
+* And for the presence of a view (holding all else constant) price increases by $313,400.
 
 ## 6. Conclusions 
 
