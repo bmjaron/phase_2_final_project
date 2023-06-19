@@ -59,7 +59,7 @@ Our model is also statistically significant, and all of our coefficients are sta
 
 ![residual_plot](https://github.com/bmjaron/phase_2_final_project/assets/115658357/e2f31500-edb3-47a6-afa7-a4e680d06bff)
 
-It looks like there is some curvature in the residual plot, a strong indication that our model isn't linear.
+It looks like there is some curvature in the residuals plot, a strong indication that our model isn't linear.
 
 ![partial_regression_plot](https://github.com/bmjaron/phase_2_final_project/assets/115658357/3e6d167a-7bbc-4c61-9c72-df5ae52a65f3)
 
@@ -77,16 +77,16 @@ Although we may be tempted to revert to our baseline model because of the failed
 * For every square foot of garage space added (holding all else constant) price decreases by $242. 
 * For every square foot of patio space added (holding all else constant) price increases by about $169. 
 * For every subsequent year built (holding all else constant) the price increases by about $177.
-* Each time a new range of grades is reach (holding all else constant) price increases by $207,000.
+* Each time a new grade is reached (holding all else constant) price increases by $207,000.
 * And for the presence of a view (holding all else constant) price increases by $313,400.
 
 ## 6. Conclusions 
 
 Overall, our model has a very high adjusted R-squared, which means that we capture a great deal of the total variance in house prices. This well enable our stakeholder to make accurate predictions. 
 
-A closer look at our coefficients shows that grade and view have an dramatic impact on sale price. Our stakeholder is in the buiness of buying homes at a discount, possible rennovating them, and reselling them for a premium. Traditional logic might dictate that the most important factors are bedrooms and square footage, so much so that increasing bedrooms and square footage would be the priority rennovations. Our model shows that the market responds acutely to quality of construction and materials. It would, therefore, be wise for the seller to either look for homes with high quality that are selling at a discount, or to rennovate in a manner that enhances the quality of materials or construction. 
+A closer look at our coefficients shows that grade and view have a dramatic impact on sale price. Our stakeholder is in the buiness of buying homes at a discount, possibly rennovating them, and reselling them for a premium. Traditional logic might dictate that the most important factors are bedrooms and square footage, so much so that increasing bedrooms and square footage would be the priority rennovations. Our model shows that the market responds acutely to quality of construction and materials. It would, therefore, be wise for the seller to either look for homes with high quality that are selling at a discount, or to rennovate in a manner that enhances the quality of materials or construction. 
 
-A second point to consider is the following: although it is impossible to *create* a view (one can't collect nature's mountains and bodies of water and move them to their backyard), a home with a view that is selling at a discount should be the primary priority for the seller. Given that the price is very sensitive to view, an under-valued home with a view would enable the seller to resell at a very high value.
+A second point to consider is the following: although it is impossible to *create* a view (one can't collect nature's mountains and bodies of water and move them to his backyard), a home with a view that is selling at a discount should be the primary priority for the seller. Given that the price is very sensitive to view, an under-valued home with a view would enable the seller to resell at a very high value.
 
-But it most be noted that our model fails the linearity assumption. We would, therefore, advise that the stakeholder not follow our model blindly. If the model yields a prediction that seems to defy traditional real estate norms, it might be best to second guess such a prediction. 
+But it must be noted that our model fails the linearity assumption. We would, therefore, advise that the stakeholder not follow our model blindly. If the model yields a prediction that seems to defy traditional real estate norms, it might be best to second guess such a prediction. 
 
