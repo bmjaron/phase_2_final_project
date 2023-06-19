@@ -55,7 +55,7 @@ Our model is also statistically significant, and all of our coefficients are sta
 1.  **Multicolinearity:** This should not be a problem for us, as we worked hard to eliminate this problem earlier.
 2. **Normality:** Looking at the p-value of the Jarque-Bera test, which checks for residual normality, we can see a value of 0. This means that we can reject the null hypothesis that our model residuals are not normal in favor of the alternative hypothesis that our model residuals are normal. In short, we've met the normality assumption with statistical significance. 
 3. **Homoscedasticity:** A look above at the Goldfeld-Quandt test we ran shows a p-value of 0.99, which means we fail to reject the null hypothesis, and conclude that our data is homoscedastic.
-4. **Linearity:** Last, but certainly not least, is the linearity assumption. Below, we'll show the plot of model residuals. If there's curvature in this plot, then it is a pretty good indidcation that our model isn't linear. Additionally, we'll plot the partial regression plots of each predictor with the target. This will helps us understand if each predictor has a linear relationship with the target, while holding all else constant. We'll also present the p-value of the linear rainbow test. The null hypothesis of this test is that the model is linear. A rejection of the null hyptohesis (which will happen if the p-value is less than 0.05) in favor of the alternative hypothesis means that the model is **not** linear.
+4. **Linearity:** Last, but certainly not least, is the linearity assumption. Below, we'll show the plot of model residuals. If there's curvature in this plot, then it is a pretty good indidcation that our model isn't linear. Additionally, we'll plot the partial regression plots of each predictor with the target. This will helps us understand if each predictor has a linear relationship with the target, while holding all else constant. We'll also present the p-value of the linear rainbow test. The null hypothesis of this test is that the model is linear. A rejection of the null hypothesis (which will happen if the p-value is less than 0.05) in favor of the alternative hypothesis means that the model is **not** linear.
 
 ![residual_plot](https://github.com/bmjaron/phase_2_final_project/assets/115658357/e2f31500-edb3-47a6-afa7-a4e680d06bff)
 
@@ -67,7 +67,7 @@ Additionally, it looks like none of the predictors have a linear relationship wi
 
 Finally, the linear rainbow test for our model has a p-value that is below 0.05, which means that we reject the null hypothesis in favor of the alternative hypothesis that the model **isn't** linear. 
 
-Although we may be tempted to revert to our baseline model because of the failed linearity assumption, in our notebook we ran countless models that all failed on this assumption. Even a logarithmic model failed this assumption. As a result, this model, considering that it had the higest adjusted R-squared, is our best performer. 
+Although we may be tempted to revert to our baseline model because of the failed linearity assumption, in our notebook we ran countless models that all failed on this assumption. Even a logarithmic model failed this assumption. As a result, this model, considering that it had the highest adjusted R-squared, is our best performer. 
 
 **Interpreation of Model:** A house with no features will have a price of 0 dollars. 
 
@@ -82,9 +82,11 @@ Although we may be tempted to revert to our baseline model because of the failed
 
 ## 6. Conclusions 
 
-Although our model is statistically significant and explains about 78% of the variance, we would caution our client before using our model to predict home prices. 
+Overall, our model has a very high adjusted R-squared, which means that we capture a great deal of the total variance in house prices. This well enable our stakeholder to make accurate predictions. 
 
-Although this model could deliver a rough approximation of what a house price might be, there's still a chance of witnessing variance from the prediction. Another point of concern is that none of our models meet the linearity assumption. 
+A closer look at our coefficients shows that grade and view have an dramatic impact on sale price. Our stakeholder is in the buiness of buying homes at a discount, possible rennovating them, and reselling them for a premium. Traditional logic might dictate that the most important factors are bedrooms and square footage, so much so that increasing bedrooms and square footage would be the priority rennovations. Our model shows that the market responds acutely to quality of construction and materials. It would, therefore, be wise for the seller to either look for homes with high quality that are selling at a discount, or to rennovate in a manner that enhances the quality of materials or construction. 
 
-It is our recommendation that the client not use our model in order to make any significant financial decision, rather use more intuitive methods to determine what constitutes a good deal, and use our model only as a check to make sure data aligns with prior assumptions. 
+A second point to consider is the following: although it is impossible to *create* a view (one can't collect nature's mountains and bodies of water and move them to their backyard), a home with a view that is selling at a discount should be the primary priority for the seller. Given that the price is very sensitive to view, an under-valued home with a view would enable the seller to resell at a very high value.
+
+But it most be noted that our model fails the linearity assumption. We would, therefore, advise that the stakeholder not follow our model blindly. If the model yields a prediction that seems to defy traditional real estate norms, it might be best to second guess such a prediction. 
 
