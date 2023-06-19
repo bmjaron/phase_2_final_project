@@ -4,19 +4,27 @@
 
 **Author**: [Benjamin Jaron](mailto:bmjaron@gmail.com)
 
-## Overview 
+## Table of Contents
+1) Overview
+2) Business Problem
+3) Data
+4) Modeling
+5) Results
+6) Conclusions
+   
+## 1. Overview 
 
 This project analyzes the King County housing dataset and builds a linear regression model to predict housing prices. The stakeholder is a real estate investment firm that needs to understand accurate housing prices. The results of the model are positive overall, but should be used with caution.
 
-## Business Problem
+## 2. Business Problem
 
 Our stakeholder is a real estate investment firm located in King County, which is in Washington State. Their business is to buy homes that are presumed to be at a discount, hold or rennovate them, with the aim to flip the homes at a later date for a profit. They have presented us with a data set, and want us to use the data to build a model that will be able to accurately predict the true value of a home.
 
-## Data 
+## 3. Data 
 
 Our project makes use of only one dataset, which is officially titled the King County House Sales dataset. The dataset contains 30,155 entries, with very few null values. Additionally, there are 25 columns, 2 of which contain price and a unique id for each house. Since the target is price, and id is irrelevant to our modelling, this leaves us with 23 potential predictors. 
 
-## Modeling
+## 4. Modeling
 
 Our goal is to build a regression model that can most closely predict the price of a home. There are a few characteristics that will determine what's best, including R-squared (how much of the total variance in house price does our model capture), and whether or not our model and its variables are statistically significant. 
 
@@ -34,7 +42,7 @@ We also added 2 categorical variables: grade and view. Grade is the overall grad
 
 Additionally, in order to better capture some curvature in sqft_living, we exponentially transformed this variable. 
 
-## Results 
+## 5. Results 
 ![regression_equation](https://github.com/bmjaron/phase_2_final_project/assets/115658357/634449c8-ddc6-4885-8fb8-adb7412cc852)
 
 ![regression_equation_table](https://github.com/bmjaron/phase_2_final_project/assets/115658357/d61412d2-37e6-4a9c-b9ca-953c45fcfcd4)
@@ -65,7 +73,7 @@ Although we may be tempted to revert to our baseline model because of the failed
 
 **Model Limitations:** Although our model seems to perform well, it does not account for one of the most important features in real estate: location. Additionally, it does not meet the linearity assumption and should be used cautiously. 
 
-## Conclusions 
+## 6. Conclusions 
 
 Although our model is statistically significant and explains about 78% of the variance, we would caution our client before using our model to predict home prices. 
 
